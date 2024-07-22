@@ -1,0 +1,26 @@
+﻿[
+  {
+    "path": "/demo",
+    "name": "demo",
+    "key": "demo",
+    "icon": "aliwangwang"
+  },
+  {
+    "path": "/demo1",
+    "name": "demo1",
+    "key": "demo1",
+    "icon": "aliwangwang"
+  },
+  {
+    "path": "/demo2",
+    "name": "demo2",
+    "key": "demo2",
+    "icon": "aliwangwang"
+  },
+  {
+    "path": "/demo3",
+    "name": "demo3",
+    "key": "demo3",
+    "icon": "aliwangwang"
+  }
+]

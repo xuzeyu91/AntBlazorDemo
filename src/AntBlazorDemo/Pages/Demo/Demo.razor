@@ -1,0 +1,33 @@
+﻿@namespace AntBlazorDemo.Pages.Demo
+@page "/demo"
+
+@if (menuList.Any())
+{
+    <TreeSelect Style="width:100%;"
+    DataSource="menuList"
+    @bind-Values="@_menuRole"
+    Placeholder="Please select"
+    AllowClear
+    TreeCheckable
+    CheckOnClickNode
+    TreeDefaultExpandAll
+    ItemValue="node=> node.Key"
+    ChildrenExpression="node=>node.DataItem.Children"
+    TitleExpression="node=>node.DataItem.Name"
+    KeyExpression="node=>node.DataItem.Key"
+    IsLeafExpression="node=>node.DataItem.Children==null">
+    </TreeSelect>
+}
+
+@code 
+{
+    [Inject] public HttpClient HttpClient { get; set; }
+    private List<MenuDataItem> menuList = new List<MenuDataItem>();
+    IEnumerable<string> _menuRole = Array.Empty<string>();
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        menuList = (await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json")).ToList();
+        _menuRole=new List<string> { "demo" };
+    }
+}
